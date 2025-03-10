@@ -5,9 +5,14 @@ import { pgTable, text } from "drizzle-orm/pg-core";
 //with client you can set up a connection(drizzle instance) but with pool you can create pool of connections for a single client
 
 import { Pool } from "pg";
+import { Invoices } from "@/db/schema";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 20 });
-export const db = drizzle(pool);
+export const db = drizzle(pool, {
+  schema:{
+    Invoices
+  }
+});
 
 /*Client connection sample code
 import { Client } from "pg";
