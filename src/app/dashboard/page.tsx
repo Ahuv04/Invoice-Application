@@ -20,21 +20,20 @@ import {cn} from "@/lib/utils";
 
 export default async function Home() {
     const results = await db.select().from(Invoices);
-    console.log(results);
+    // console.log(results);
   return (
       <main className="max-w-5xl mx-auto flex flex-col justify-center gap-6 text-center my-12">
         <div className="flex justify-between">
             <h1 className="text-3xl font-semibold"> Dashboard</h1>
-        </div>
-        <p>
+            <p>
             <Button className="inline-flex gap-2" variant="ghost" asChild>
                 <Link href="/invoices/new">
                 <CirclePlus className="h-4 w-4"/>
                 Create Invoice
                 </Link>
             </Button>
-
         </p>
+        </div>
         <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
